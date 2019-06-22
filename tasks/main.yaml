@@ -1,1 +1,14 @@
 ---
+- mount:
+    name: '{{ item }}'
+    fstype: swap
+    state: absent
+  with_items:
+    - swap
+    - none
+  remote_user: root
+  when: ansible_system == 'Linux'
+
+- shell: swapoff -a
+  remote_user: root
+  when: ansible_system == 'Linux' and ansible_swaptotal_mb > 0
