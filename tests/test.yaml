@@ -1,4 +1,4 @@
 ---
 - hosts: localhost
   roles:
-    - ansible-disable-swap
+  - ansible-disable-swap
